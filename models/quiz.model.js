@@ -52,10 +52,7 @@ quiz.getById = async function (quiz_id) {
  * @returns an object containing the inserted quiz with the newly inserted quiz_id
  */
 quiz.post = async function (quiz) {
-  const rows = await db.query(
-    `INSERT INTO quiz SET ${prepareQuery(smartzone)}`,
-    prepareParams(quiz)
-  )
+  const rows = await db.query(`INSERT INTO quiz SET ${prepareQuery(quiz)}`, prepareParams(quiz))
   quiz.quiz_id = rows.insertId
   return {
     data: [quiz],

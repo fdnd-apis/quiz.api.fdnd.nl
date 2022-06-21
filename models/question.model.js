@@ -56,7 +56,7 @@ question.getById = async function (question_id) {
  */
 question.post = async function (question) {
   const rows = await db.query(
-    `INSERT INTO question SET ${prepareQuery(smartzone)}`,
+    `INSERT INTO question SET ${prepareQuery(question)}`,
     prepareParams(question)
   )
   question.question_id = rows.insertId
