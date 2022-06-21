@@ -18,7 +18,7 @@ module.exports = express
   // List ALL items
   .get('/', async (req, res, next) => {
     try {
-      res.json(await Question.getAll(req.query.page))
+      res.json(await Question.get(req.query.page))
     } catch (err) {
       console.error('Error while getting all: ', err.message)
       next(err)
