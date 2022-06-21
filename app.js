@@ -12,5 +12,5 @@ module.exports = express()
 
   .use('/', indexRoute)
   .use('/v1/quiz', quizRoute)
-  .use('v1/question', questionRoute)
+  .use('/v1/question', questionRoute)
   .use(errorRoute)
