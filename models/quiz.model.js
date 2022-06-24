@@ -22,11 +22,12 @@ const quiz = function (quiz) {
  * @returns
  */
 quiz.get = async function (page = 1) {
+  console.log('quiz.get() start')
   const rows = await db.query(`SELECT * FROM quiz LIMIT ?,?`, [
     helper.getOffset(page, process.env.LIST_PER_PAGE),
     Number(process.env.LIST_PER_PAGE),
   ])
-
+  console.log('quiz.get() done')
   return {
     data: helper.emptyOrRows(rows),
     meta: { page },
@@ -115,7 +116,7 @@ module.exports = quiz
  * @returns a string to be used in the patch query, eg 'field = ?, field2 = ? ...'
  */
 function prepareQuery(quiz) {
-  console.log(quiz)
+  console.log('prepareQuery() with: ' + quiz)
   return Object.keys(quiz)
     .filter((field) => field != 'quiz_id')
     .map((field) => `${field} = ?`)
