@@ -115,6 +115,7 @@ module.exports = quiz
  * @returns a string to be used in the patch query, eg 'field = ?, field2 = ? ...'
  */
 function prepareQuery(quiz) {
+  console.log(quiz)
   return Object.keys(quiz)
     .filter((field) => field != 'quiz_id')
     .map((field) => `${field} = ?`)
