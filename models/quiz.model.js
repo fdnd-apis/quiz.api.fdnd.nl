@@ -41,7 +41,7 @@ quiz.getById = async function (quiz_id) {
   const rows = await db.query(`SELECT * FROM quiz WHERE quiz_id = ?`, [quiz_id])
   return {
     data: helper.emptyOrRows(rows),
-    meta: { page },
+    meta: {},
   }
 }
 
