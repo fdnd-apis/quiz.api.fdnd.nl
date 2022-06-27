@@ -45,7 +45,7 @@ question.getById = async function (question_id) {
   const rows = await db.query(`SELECT * FROM question WHERE question_id = ?`, [question_id])
   return {
     data: helper.emptyOrRows(rows),
-    meta: { page },
+    meta: {},
   }
 }
 
