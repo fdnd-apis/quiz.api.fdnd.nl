@@ -25,11 +25,11 @@ const question = function (question) {
  * @returns
  */
 question.get = async function (page = 1) {
-  const rows = await db.query(`SELECT * FROM question LIMIT ?,?`, [
-    helper.getOffset(page, process.env.LIST_PER_PAGE),
-    Number(process.env.LIST_PER_PAGE),
-  ])
-
+  // const rows = await db.query(`SELECT * FROM question LIMIT ?,?`, [
+  //   helper.getOffset(page, process.env.LIST_PER_PAGE),
+  //   Number(process.env.LIST_PER_PAGE),
+  // ])
+  const rows = await db.query(`SELECT * FROM question`)
   return {
     data: helper.emptyOrRows(rows),
     meta: { page },
