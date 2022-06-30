@@ -63,7 +63,7 @@ module.exports = express
 
   // Delete an item
   .delete(['/', '/:id'], async (req, res, next) => {
-    console.log('Got: ' + req.params.id || req.body)
+    console.log('Got: ' + req.body)
     try {
       res.json(await Question.delete(req.params.id || req.body.id))
     } catch (err) {
