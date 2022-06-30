@@ -52,7 +52,7 @@ module.exports = express
   // Patch an item
   .patch('/', async (req, res, next) => {
     try {
-      res.json(await Example.patch(req.body))
+      res.json(await Quiz.patch(req.body))
     } catch (err) {
       res.json({
         message: `Error while patching: ${err.message}`,
@@ -65,7 +65,7 @@ module.exports = express
   .delete(['/', '/:id'], async (req, res, next) => {
     console.log('Got: ' + req.params.id || req.body)
     try {
-      res.json(await Example.delete(req.params.id || req.body.id))
+      res.json(await Quiz.delete(req.params.id || req.body.id))
     } catch (err) {
       res.json({
         message: `Error while deleting: ${err.message}`,
